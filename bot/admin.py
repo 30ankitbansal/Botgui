@@ -6,3 +6,4 @@ from bot.models import *
 
 admin.site.register(EmailSubscribe)
 admin.site.register(Contact)
+admin.site.register(UserProfile)

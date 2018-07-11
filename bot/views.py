@@ -19,12 +19,23 @@ def index(request):
 
 
 def dashboard(request):
-    # print('1111')
-    currency_pairs = History.objects.order_by('symbol').values_list('symbol', flat=True).distinct()
-    # print(currency_pairs)
-    # print(len(currency_pairs))
+    if request.user.is_authenticated():
+        # print('1111')
+        currency_pairs = History.objects.order_by('symbol').values_list('symbol', flat=True).distinct()
+        # print(currency_pairs)
+        # print(len(currency_pairs))
 
-    return render(request, "dashboard.html", {'currency_pairs': currency_pairs})
+        return render(request, "dashboard.html", {'currency_pairs': currency_pairs})
+    else:
+        return HttpResponseRedirect('/index/')
+
+
+def profile(request):
+    if request.user.is_authenticated():
+        # If a user is logged in, redirect them to a page informing them of such
+        return render(request, "profile.html")
+    else:
+        return HttpResponseRedirect('/index/')
 
 
 def index3(request):

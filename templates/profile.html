@@ -1,0 +1,277 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %} Profile {% endblock %}
+{% block content %}
+<header class="header-inner">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="intro-text">
+                    <h1 class="wow fadeInUp">Profile</h1>
+                    <h6>User Profile</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!--<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>-->
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+<!--<link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">-->
+<!--&lt;!&ndash;<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">&ndash;&gt;-->
+<!--<script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/js/gijgo.min.js" type="text/javascript"></script>-->
+<!--<link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/css/gijgo.min.css" rel="stylesheet" type="text/css" />-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+<section class="section-padding-1">
+    <div class="container">
+        <div class="row justify-content-center" align="center">
+            <div class="col-md-9">
+                <form class="">
+                    <fieldset>
+
+                        <!-- Form Name -->
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Upload Image</label>
+                            <div class="col-md-8">
+                                <div class="row">
+                                    <div id="coba"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <!--<label class="col-md-4 control-label" for="Name (Full name)">Name (Full name)</label>-->
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <input id="Name (Full name)" name="Name (Full name)" type="text"
+                                           placeholder="Name (Full name)" class="form-control input-md">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <!--<label class="col-md-6 control-label" for="Date Of Birth">Date Of Birth</label>-->
+                                    <div class="col-md-6">
+                                       <div class="input-group col-md-12">
+                                        <input placeholder="Date Of Birth" class="form-control" id="datepicker" width="270" />
+
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                        <!-- Multiple Radios (inline) -->
+                        <div class="form-group">
+                            <label class="col-md-6 control-label" for="Gender">Gender</label>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                <label class="radio-inline col-md-4" for="Gender-0">
+                                    <input type="radio" name="Gender" id="Gender-0" value="1" checked="checked">
+                                    Male
+                                </label>
+                                <label class="radio-inline col-md-4" for="Gender-1">
+                                    <input type="radio" name="Gender" id="Gender-1" value="2">
+                                    Female
+                                </label>
+                                <label class="radio-inline col-md-4" for="Gender-2">
+                                    <input type="radio" name="Gender" id="Gender-2" value="3">
+                                    Other
+                                </label>
+                            </div>
+                            </div>
+                        </div>
+
+                        <!-- Multiple Radios (inline) -->
+                        <div class="form-group">
+                            <label class="col-md-6 control-label" for="radios">Marital Status:</label>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                <label class="radio-inline" for="radios-0">
+                                    <input type="radio" name="radios" id="radios-0" value="1" checked="checked">
+                                    Married
+                                </label>
+                                <label class="radio-inline" for="radios-1">
+                                    <input type="radio" name="radios" id="radios-1" value="2">
+                                    Unmarried
+                                </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-6 control-label col-xs-12" for="Permanent Address">Permanent
+                                Address</label>
+                             <div class="col-md-6">
+                                <div class="input-group">
+                                    <div class="col-md-6  col-xs-4">
+                                        <input id="Permanent Address" name="Permanent Address" type="text"
+                                               placeholder="District" class="form-control input-md ">
+                                    </div>
+
+                                    <div class="col-md-6 col-xs-4">
+
+                                        <input id="Permanent Address" name="Permanent Address" type="text" placeholder="Area"
+                                               class="form-control input-md ">
+                                    </div>
+                                </div>
+                             </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-6 control-label" for="Permanent Address"></label>
+                             <div class="col-md-6">
+                                <div class="input-group">
+                                    <div class="col-md-12  col-xs-4">
+                                        <input id="Permanent Address" name="Permanent Address" type="text" placeholder="Street"
+                                               class="form-control input-md ">
+                                    </div>
+                                </div>
+                             </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-6 control-label col-xs-12" for="Temporary Address">Temporary
+                                Address</label>
+                             <div class="col-md-6">
+                                <div class="input-group">
+                                    <div class="col-md-6  col-xs-4">
+                                        <input id="Temporary Address" name="Temporary Address" type="text"
+                                               placeholder="District" class="form-control input-md ">
+                                    </div>
+                                    <div class="col-md-6 col-xs-4">
+                                        <input id="Temporary Address" name="Temporary Address" type="text" placeholder="Area"
+                                               class="form-control input-md ">
+                                    </div>
+                                </div>
+                             </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-6 control-label" for="Temporary Address"></label>
+                             <div class="col-md-6">
+                                <div class="input-group">
+                                    <div class="col-md-12  col-xs-4">
+                                        <input id="Temporary Address" name="Temporary Address" type="text" placeholder="Street"
+                                               class="form-control input-md ">
+                                    </div>
+                                </div>
+                             </div>
+                        </div>
+
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <!--<label class="col-md-6 control-label" for="Primary Occupation">Primary Occupation</label>-->
+                            <div class="col-md-6">
+                                <div class="input-group col-md-12">
+                                    <input id="Primary Occupation" name="Primary Occupation" type="text"
+                                           placeholder="Primary Occupation" class="form-control input-md">
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <!--<label class="col-md-6 control-label" for="Secondary Occupation (if any)">Secondary-->
+                                <!--Occupation (if any)</label>-->
+                            <div class="col-md-6">
+                                <div class="input-group col-md-12">
+                                    <input id="Secondary Occupation (if any)" name="Secondary Occupation (if any)"
+                                           type="text" placeholder="Secondary Occupation (if any)"
+                                           class="form-control input-md">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-6 control-label" for="Phone number ">Phone number </label>
+                            <div class="col-md-6">
+                                <div class="input-group col-md-12">
+                                    <input id="Phone number " name="Phone number " type="text"
+                                           placeholder="Primary Phone number " class="form-control input-md">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-6 control-label" for="Phone number "></label>
+                            <div class="col-md-6">
+                                <div class="input-group col-md-12">
+                                    <input id="Phone number " name="Secondary Phone number " type="text"
+                                           placeholder=" Secondary Phone number " class="form-control input-md">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-6 control-label" for="Email Address">Email Address</label>
+                            <div class="col-md-6">
+                                <div class="input-group col-md-12">
+
+                                    <input id="Email Address" name="Email Address" type="text"
+                                           placeholder="Email Address" class="form-control input-md">
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <!-- Textarea -->
+                        <div class="form-group">
+                            <label class="col-md-6 control-label" for="Overview (max 200 words)">Overview (max 200
+                                words)</label>
+
+                            <div class="col-md-6">
+                                <div class="input-group col-md-12">
+                                <textarea class="form-control" rows="10" id="Overview (max 200 words)"
+                                          name="Overview (max 200 words)">Overview</textarea>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-md-6 control-label"></label>
+                            <div class="col-md-6">
+                                <a href="#" class="btn btn-success"><span class="glyphicon glyphicon-thumbs-up"></span>
+                                    Submit</a>
+                                <a href="#" class="btn btn-danger" value=""><span
+                                        class="glyphicon glyphicon-remove-sign"></span> Clear</a>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="{% static 'js/spartan-multi-image-picker.js' %}"></script>
+
+<script type="text/javascript">
+    $(function(){
+        $("#coba").spartanMultiImagePicker({
+            fieldName:        'fileUpload[]',
+            directUpload : {
+                status: true,
+                loaderIcon: '<i class="fas fa-sync fa-spin"></i>',
+                url: '../c.php',
+                additionalParam : {
+                    name : 'My Name'
+                },
+                success : function(data, textStatus, jqXHR){
+                },
+                error : function(jqXHR, textStatus, errorThrown){
+                }
+            }
+        });
+    });
+</script>
+{% endblock %}

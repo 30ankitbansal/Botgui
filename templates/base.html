@@ -11,6 +11,7 @@
                 **** CSS Files ****
 ==================================================-->
 <link href="{% static 'css/bootstrap.old.css' %}" rel="stylesheet">
+<!--<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">-->
 <link href="{% static 'css/icofont.css' %}" rel="stylesheet">
 <link href="{% static 'css/bootstrap-navbar.css' %}" rel="stylesheet">
 <link href="{% static 'css/magnific-popup.css' %}" rel="stylesheet" >
@@ -24,7 +25,7 @@
 <body>
 <div class="preloader"></div>
 <nav id="navbar-1" class="navbar navbar-expand-lg btco-hover-menu navbar-1">
-  <div class="container"> <a class="navbar-brand" href="index.html">
+  <div class="container "> <a class="navbar-brand" href="index.html">
     <img id="logo" class="logo" src="{% static 'images/logo-1.png' %}" alt="logo-1"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
@@ -42,7 +43,7 @@
         {% if user.is_authenticated %}
         <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Welcome {{ user.username }} <i class="icofont icofont-simple-down"></i></a>
           <ul class="dropdown-menu animated fadeIn">
-            <li><a class="dropdown-item" href="index.html">Profile</a></li>
+            <li><a class="dropdown-item" href="profile.html">Profile</a></li>
             <li><a class="dropdown-item" href="index-2.html">My Orders</a></li>
             <li><a class="dropdown-item" href="index-3.html">Settings</a></li>
           </ul>
