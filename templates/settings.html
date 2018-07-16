@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %} Settings {% endblock %}
+{% block content %}
+<header class="header-inner">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="intro-text">
+                    <h1 class="wow fadeInUp">Settings</h1>
+                    <h6>Settings</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<section class="section-padding-1">
+    <div class="container">
+        <div class="row justify-content-center" align="center">
+            <div class="col-md-9">
+                <h1>Exchange</h1>
+                <h1>Binance</h1>
+                <form method="post" name="settingsform" id="settingsform">
+                    {% csrf_token %}
+                    <fieldset>
+                        <div class="form-group">
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <input id="key" name="key" type="text" value='{{ key }}'
+                                           placeholder="Key" class="form-control input-md">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <input id="secret" name="secret" type="text" value="{{ secret }}"
+                                           placeholder="Secret" class="form-control input-md">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-6 control-label"></label>
+                            <div class="col-md-6">
+                                <input type="submit" class="btn btn-md btn-pink wow tada" id="submit" value="Submit">
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

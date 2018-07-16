@@ -136,3 +136,10 @@ class UserProfileForm(forms.ModelForm):
             pass
 
         return avatar
+
+
+class SettingsForm(forms.ModelForm):
+
+    class Meta:
+        model = Exchange
+        fields = ('key', 'secret')

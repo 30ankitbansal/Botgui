@@ -43,6 +43,7 @@ urlpatterns = [
     url(r'^login', views.login_view, name='login'),
     url(r'^email_subscribe', views.email_subscribe, name='email_subscribe'),
     url(r'^profile', views.profile, name='profile'),
+    url(r'^settings', views.settings, name='settings'),
     # url(r'^time$', views.time, name='time'),
     # url('^symbols', views.symbols, name='symbols'),
     # url('^search', views.search, name='search'),

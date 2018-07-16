@@ -163,10 +163,10 @@ def time(request):
 def ticker(request, symbol):
     if request.user.is_authenticated():
         # symbol = request.GET['symbol']
-        print(symbol)
+        # print(symbol)
         obj = binance.Binance()
         response = obj.ticker(symbol)
-        print(response)
+        # print(response)
     return HttpResponse(json.dumps(response), content_type='application/json')
     # if request.method == "POST":
     #     form = EmailSubscribeForm(request.POST)

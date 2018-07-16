@@ -176,4 +176,23 @@ def contact(request):
     return render(request, 'contact.html', {'form': form})
 
 
+def settings(request):
+    if request.method == 'POST':
+        form = SettingsForm(request.POST)
+        if form.is_valid():
+            exchange, created = Exchange.objects.get_or_create(user=request.user)
+            exchange.name = 'binance'
+            exchange.key = form.cleaned_data.get('key')
+            exchange.secret = form.cleaned_data.get('secret')
+            exchange.save()
+            return HttpResponseRedirect('/settings/')
+        return HttpResponseRedirect('/settings/')
+    elif request.user.is_authenticated():
+        try:
+            exchange = Exchange.objects.get(user=request.user)
+            return render(request, "settings.html", {'key': exchange.key, 'secret': exchange.secret})
+        except:
+            return render(request, "settings.html")
+    else:
+        return HttpResponseRedirect('/index/')
 
