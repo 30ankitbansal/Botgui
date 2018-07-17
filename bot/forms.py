@@ -138,8 +138,14 @@ class UserProfileForm(forms.ModelForm):
         return avatar
 
 
-class SettingsForm(forms.ModelForm):
+class SettingsForm(forms.Form):
+    key = forms.CharField(max_length=100)
+    secret = forms.CharField(max_length=100)
+    trading_mode = forms.CharField(max_length=100)
+    coin_used = forms.CharField(max_length=100)
+    stop_loss_percent = forms.CharField(max_length=100)
+    max_profit = forms.CharField(max_length=100)
 
-    class Meta:
-        model = Exchange
-        fields = ('key', 'secret')
+    # class Meta:
+    #     model = Exchange, Setting
+    #     fields = ('key', 'secret', 'trading_mode', 'coin_used', 'stop_loss_percent', 'max_profit')

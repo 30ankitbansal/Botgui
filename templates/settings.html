@@ -24,6 +24,7 @@
                     {% csrf_token %}
                     <fieldset>
                         <div class="form-group">
+                            <label class="col-md-6 control-label" for="key">Key</label>
                             <div class="col-md-6">
                                 <div class="input-group">
                                     <input id="key" name="key" type="text" value='{{ key }}'
@@ -33,10 +34,58 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label class="col-md-6 control-label" for="secret">Secret</label>
                             <div class="col-md-6">
                                 <div class="input-group">
                                     <input id="secret" name="secret" type="text" value="{{ secret }}"
                                            placeholder="Secret" class="form-control input-md">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-6 control-label" for="trading_mode">Trading Mode</label>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <select name="trading_mode" class="form-control input-md" id="trading_mode">
+                                        {% if trading_mode == 'live_trading' %}
+                                      <option value="paper_trading">Paper Trading</option>
+                                      <option value="live_trading" selected>Live Trading</option>
+
+                                        {% else %}
+                                      <option value="paper_trading" selected>Paper Trading</option>
+                                      <option value="live_trading" >Live Trading</option>
+                                        {% endif%}
+                                    </select>
+
+                                <!--<input id="trading_mode" name="trading_mode" type="text" value="{{ trading_mode }}"-->
+                                           <!--placeholder="Trading Mode" class="form-control input-md">-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-6 control-label" for="stop_loss_percent">Stop Loss Percent</label>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                <input id="stop_loss_percent" name="stop_loss_percent" type="text" value="{{ stop_loss_percent }}"
+                                           placeholder="Stop Loss Percent" class="form-control input-md">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-6 control-label" for="coin_used">Coin Usage Percent</label>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                <input id="coin_used" name="coin_used" type="text" value="{{ coin_used }}"
+                                           placeholder="Coin Usage Percent" class="form-control input-md">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-6 control-label" for="max_profit">Max Profit Percent</label>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                <input id="max_profit" name="max_profit" type="text" value="{{ max_profit }}"
+                                           placeholder="Max Profit Percent" class="form-control input-md">
                                 </div>
                             </div>
                         </div>

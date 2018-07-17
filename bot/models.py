@@ -1,10 +1,14 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from django.utils import timezone
+from datetime import datetime
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 # from bot.forms import *
 # Create your models here.
+
+trading_mode_choices = (('paper_trading', 'Paper Trading'),
+                        ('live_trading', 'Live Trading'))
 
 
 class Contact(models.Model):
@@ -14,12 +18,6 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.name
-
-    # class Meta:
-        # managed = False
-        # verbose_name_plural = 'contact'
-        # verbose_name = 'contact'
-        # db_table = 'contact'
 
 
 class EmailSubscribe(models.Model):
@@ -60,3 +58,11 @@ class Exchange(models.Model):
     secret = models.CharField(max_length=200)
     other = models.CharField(max_length=300, default='', blank=True, null=True)
 
+
+class Setting(models.Model):
+    user = models.OneToOneField(User)
+    trading_mode = models.CharField(choices=trading_mode_choices, max_length=20)
+    coin_used = models.CharField(max_length=10)
+    stop_loss_percent = models.CharField(max_length=10)
+    max_profit = models.CharField(max_length=10)
+    updated_at = models.DateTimeField(blank=False, null=False, default=timezone.now())

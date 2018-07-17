@@ -180,6 +180,16 @@ def settings(request):
     if request.method == 'POST':
         form = SettingsForm(request.POST)
         if form.is_valid():
+            print(form.cleaned_data)
+            setting, created = Setting.objects.get_or_create(user=request.user)
+            print(setting)
+            print(type(setting))
+            setting.coin_used = form.cleaned_data.get('coin_used')
+            setting.trading_mode = form.cleaned_data.get('trading_mode')
+            setting.stop_loss_percent = form.cleaned_data.get('stop_loss_percent')
+            setting.max_profit = form.cleaned_data.get('max_profit')
+            setting.updated_at = datetime.datetime.now()
+            setting.save()
             exchange, created = Exchange.objects.get_or_create(user=request.user)
             exchange.name = 'binance'
             exchange.key = form.cleaned_data.get('key')
@@ -190,6 +200,14 @@ def settings(request):
     elif request.user.is_authenticated():
         try:
             exchange = Exchange.objects.get(user=request.user)
+            try:
+                setting = Setting.objects.get(user=request.user)
+                print(setting.trading_mode)
+                return render(request, "settings.html", {'key': exchange.key, 'secret': exchange.secret,
+                                                  'trading_mode': setting.trading_mode, 'coin_used': setting.coin_used,
+                                                  'stop_loss_percent': setting.stop_loss_percent, 'max_profit': setting.max_profit})
+            except:
+                pass
             return render(request, "settings.html", {'key': exchange.key, 'secret': exchange.secret})
         except:
             return render(request, "settings.html")
