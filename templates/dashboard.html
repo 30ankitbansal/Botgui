@@ -15,14 +15,14 @@
     </div>
 </header>
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/i18n/defaults-*.min.js"></script>-->
-<script src="{% static 'js/umd/popper.min.js' %}" ></script>
+<!--<script src="{% static 'js/umd/popper.min.js' %}" ></script>-->
 <!--<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">-->
 <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">-->
-<link rel="stylesheet" href="{% static 'css/bootstrap-select.css' %}" >
+<!--<link rel="stylesheet" href="{% static 'css/bootstrap-select.css' %}" >-->
 <script src="{% static 'js/jquery.min.js' %}"></script>
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>-->
 
-<script src="{% static 'js/bootstrap-select.js' %}"></script>
+<!--<script src="{% static 'js/bootstrap-select.js' %}"></script>-->
 <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
 
 
@@ -50,13 +50,14 @@ table, tr, td {
                 <div class="row" style="">
                     <div class="form-group" style="margin: 5px;"><i class=""></i>
                         <label for="exchange">Exchange</label> <br/>
-                        <select name="exchange" class="selectpicker" id="exchange"  placeholder="Exchange">
+                        <select name="exchange" class="form-control input-sm select2" id="exchange"  placeholder="Exchange">
                             <option value="">Binance</option>
                         </select>
                     </div >
                     <div class="form-group" style="margin: 5px;"  ><i class=""></i>
-                    <label for="currencypair">Currency Pair</label> <br/>
-                    <select name="currencypair" onchange="changeCurrencyPair()" data-live-search="true" data-live-search-style="startsWith" id="currencypair"  class="selectpicker"
+                        <label for="currencypair">Currency Pair</label> <br/>
+                        <select name="currencypair" onchange="changeCurrencyPair()" data-live-search="true" data-live-search-style="startsWith"
+					id="currencypair"  class="form-control input-sm select2"
                             placeholder="Exchange">
                         <option value="BTCUSDT" selected>BTCUSDT</option>
                         {% for currency in currency_pairs %}
@@ -132,10 +133,6 @@ table, tr, td {
 <script type="text/javascript" src="{% static 'charting_library-master/datafeeds/udf/dist/bundle.js' %}"></script>
 
 <script type="text/javascript">
-$('.selectpicker').selectpicker({
-  style: 'btn-info',
-  size: 4
-});
 
 var widget
 function getParameterByName(name) {
@@ -176,6 +173,7 @@ function getParameterByName(name) {
 
 				});
 			});
+
 $(document).ready(
  function() {
  <!--alert('start')-->

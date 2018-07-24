@@ -30,14 +30,6 @@ def dashboard(request):
         return HttpResponseRedirect('/index/')
 
 
-def profile(request):
-    if request.user.is_authenticated():
-        # If a user is logged in, redirect them to a page informing them of such
-        return render(request, "profile.html")
-    else:
-        return HttpResponseRedirect('/index/')
-
-
 def index3(request):
     return render(request, "index-3.html")
 
@@ -202,7 +194,7 @@ def settings(request):
             exchange = Exchange.objects.get(user=request.user)
             try:
                 setting = Setting.objects.get(user=request.user)
-                print(setting.trading_mode)
+                # print(setting.trading_mode)
                 return render(request, "settings.html", {'key': exchange.key, 'secret': exchange.secret,
                                                   'trading_mode': setting.trading_mode, 'coin_used': setting.coin_used,
                                                   'stop_loss_percent': setting.stop_loss_percent, 'max_profit': setting.max_profit})
@@ -214,3 +206,25 @@ def settings(request):
     else:
         return HttpResponseRedirect('/index/')
 
+
+def profile(request):
+    if request.method == 'POST':
+        form = UserProfileForm(request.POST)
+        if form.is_valid():
+            return HttpResponseRedirect('/settings/')
+        return HttpResponseRedirect('/settings/')
+    elif request.user.is_authenticated():
+        # If a user is logged in, redirect them to a page informing them of such
+        try:
+            user_profile = UserProfile.objects.get(user=request.user)
+            print(user_profile)
+            render(request, 'profile.html', {'name': user_profile.name, 'email': user_profile.email,
+                                             'phone': user_profile.phone, 'phone2': user_profile.phone2,
+                                             'dob': user_profile.dob, 'gender': user_profile.gender,
+                                             'address': user_profile.address, 'occupation': user_profile.occupation,
+                                             'overview': user_profile.overview})
+        except:
+            render(request, "profile.html")
+        return render(request, "profile.html")
+    else:
+        return HttpResponseRedirect('/index/')

@@ -10,6 +10,10 @@ from django.dispatch import receiver
 trading_mode_choices = (('paper_trading', 'Paper Trading'),
                         ('live_trading', 'Live Trading'))
 
+gender_choices = (('male', 'Male'),
+                  ('female', 'Female'),
+                  ('other', 'Other'))
+
 
 class Contact(models.Model):
     name = models.CharField(max_length=100, null=False, blank=False)
@@ -30,6 +34,21 @@ class EmailSubscribe(models.Model):
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
     avatar = models.ImageField()
+    name = models.CharField(max_length=100, default='')
+    email = models.EmailField(default=False)
+    phone = models.IntegerField(default=False, null=False)
+    phone2 = models.IntegerField(null=True, blank=True)
+    dob = models.DateField(auto_now=False, blank=True, null=True)
+    gender = models.CharField(choices=gender_choices, null=False, max_length=10, default='male')
+    address = models.TextField(max_length=500, blank=True)
+    occupation = models.CharField(max_length=100, null=True)
+    overview = models.TextField(max_length=1000, null=True)
+    update_at = models.CharField(max_length=255, default='', blank=True, null=True)
+
+    # class Meta:
+    #     managed = False
+    #     db_table = 'user_profile'
+
 
 # class Profile(models.Model):
 #     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -65,4 +84,4 @@ class Setting(models.Model):
     coin_used = models.CharField(max_length=10)
     stop_loss_percent = models.CharField(max_length=10)
     max_profit = models.CharField(max_length=10)
-    updated_at = models.DateTimeField(blank=False, null=False, default=timezone.now())
+    updated_at = models.CharField(max_length=255, default='', blank=True, null=True)
