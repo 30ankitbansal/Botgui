@@ -161,7 +161,7 @@ def contact(request):
         # except Exception as e:
         # print(e)
         # else:
-    # # print('')
+        # # print('')
         return HttpResponseRedirect('/contact/')
     else:
         form = ContactForm()
@@ -196,8 +196,10 @@ def settings(request):
                 setting = Setting.objects.get(user=request.user)
                 # print(setting.trading_mode)
                 return render(request, "settings.html", {'key': exchange.key, 'secret': exchange.secret,
-                                                  'trading_mode': setting.trading_mode, 'coin_used': setting.coin_used,
-                                                  'stop_loss_percent': setting.stop_loss_percent, 'max_profit': setting.max_profit})
+                                                         'trading_mode': setting.trading_mode,
+                                                         'coin_used': setting.coin_used,
+                                                         'stop_loss_percent': setting.stop_loss_percent,
+                                                         'max_profit': setting.max_profit})
             except:
                 pass
             return render(request, "settings.html", {'key': exchange.key, 'secret': exchange.secret})
@@ -218,12 +220,19 @@ def profile(request):
         try:
             user_profile = UserProfile.objects.get(user=request.user)
             print(user_profile)
+            # response = {'name': user_profile.name, 'email': user_profile.email,
+            #             'phone': user_profile.phone, 'phone2': user_profile.phone2,
+            #             'dob': user_profile.dob, 'gender': user_profile.gender,
+            #             'address': user_profile.address, 'occupation': user_profile.occupation,
+            #             'overview': user_profile.overview}
+            # print(response)
             render(request, 'profile.html', {'name': user_profile.name, 'email': user_profile.email,
                                              'phone': user_profile.phone, 'phone2': user_profile.phone2,
                                              'dob': user_profile.dob, 'gender': user_profile.gender,
                                              'address': user_profile.address, 'occupation': user_profile.occupation,
-                                             'overview': user_profile.overview})
+                                             'overview': user_profile.overview, 'profile_picture': user_profile.avatar})
         except:
+            # print(1111)
             render(request, "profile.html")
         return render(request, "profile.html")
     else:

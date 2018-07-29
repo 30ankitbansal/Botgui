@@ -25,7 +25,7 @@ SECRET_KEY = '@8j=#9r8=jol!sv#3icx&6$-3wgi-@s!+jkcqcbbhd1m(x54(p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['167.99.7.226']
 
 
 # Application definition
@@ -76,10 +76,21 @@ WSGI_APPLICATION = 'Botgui.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'ankit',
+        'USER': 'ankit',
+        'PASSWORD': 'system@123',
+        'HOST': '167.99.7.226',
+        'PORT': '5432',
     }
 }
 

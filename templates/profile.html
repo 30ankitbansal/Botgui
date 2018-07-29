@@ -17,54 +17,43 @@
 <style>
 .add-img{position: absolute;bottom: 15px;margin: 0 auto;right: 69px;}
 </style>
-<script src="{% static 'js/jquery.min.js' %}"></script>
+<!--<script src="{% static 'js/jquery.min.js' %}"></script>-->
 <section class="section-padding-1">
     <div class="container">
         <div class="row justify-content-center" align="center">
             <div class="col-md-9">
-                <form class="">
+                <form method="post" name="userprofileform" id="userprofileform">
+                    {% csrf_token %}
                     <fieldset>
-
-                        <!-- Form Name -->
                         <div class="form-group">
                             <div class="form-group col-sm-2">
                                 <div class="img-picker" onclick="changeProfilePicture()">
-                                    <img id="profilepicture" src="{% static 'images/blank-avatar-300x300.png' %}" class="rounded-circle img-thumbnail" alt="Cinque Terre" width="304" height="236">
+                                    <img id="profilepicture" onclick="" src="{% static 'images/blank-avatar-300x300.png' %}" class="rounded-circle img-thumbnail" alt="Cinque Terre" width="304" height="236">
                                     <input type="file" id="my_file" style="display: none;" />
                                 </div>
                             </div>
                             <div class="col-md-3">
-                               <!--<span class="btn btn-light btn-sm add-img">-->
-							   <!--<i class="fa fa-camera" aria-hidden="true"></i>-->
-							   <!--</span>-->
                                 <input type="file" name="profileImage" id="profileImage" style="display: none;" onchange="readURL(this);">
 							</div>
-                            <div class="col-md-8">
-                                <div class="row">
-                                    <div id="coba">
-
-                                    </div>
-                                </div>
-                            </div>
                         </div>
 
                         <!-- Text input-->
                         <div class="form-group">
-                            <!--<label class="col-md-4 control-label" for="Name (Full name)">Name (Full name)</label>-->
+                            <label class="col-md-4 control-label" for="name">Name (Full name)</label>
                             <div class="col-md-6">
-                                <div class="input-group">
-                                    <input id="Name (Full name)" name="Name (Full name)" type="text"
+                                <div class="input-group col-md-12">
+                                    <input id="name" name="name" type="text" value='{{ name }}'
                                            placeholder="Name (Full name)" class="form-control input-md">
                                 </div>
                             </div>
                         </div>
 
-                                                <div class="form-group">
+                        <div class="form-group">
                             <label class="col-md-6 control-label" for="Email Address">Email Address</label>
                             <div class="col-md-6">
                                 <div class="input-group col-md-12">
 
-                                    <input id="Email Address" name="Email Address" type="text"
+                                    <input id="Email Address" name="Email Address" type="text" value="{{ email }}"
                                            placeholder="Email Address" class="form-control input-md">
 
                                 </div>
@@ -75,7 +64,7 @@
                             <label class="col-md-6 control-label" for="Phone number ">Phone number </label>
                             <div class="col-md-6">
                                 <div class="input-group col-md-12">
-                                    <input id="Phone number " name="Phone number " type="text"
+                                    <input id="Phone number " name="Phone number " type="text" value='{{ phone }}'
                                            placeholder="Primary Phone number " class="form-control input-md">
                                 </div>
                             </div>
@@ -84,7 +73,7 @@
                             <label class="col-md-6 control-label" for="Phone number "></label>
                             <div class="col-md-6">
                                 <div class="input-group col-md-12">
-                                    <input id="Phone number " name="Secondary Phone number " type="text"
+                                    <input id="Phone number " name="Secondary Phone number " type="text" value='{{ phone2 }}'
                                            placeholder=" Secondary Phone number " class="form-control input-md">
                                 </div>
                             </div>
@@ -96,7 +85,8 @@
                             <!--<label class="col-md-6 control-label" for="Date Of Birth">Date Of Birth</label>-->
                                     <div class="col-md-6">
                                        <div class="input-group col-md-12">
-                                        <input placeholder="Date Of Birth" class="form-control tsd_datepicker" id="datepicker" width="270" />
+                                        <input placeholder="Date Of Birth" class="form-control tsd_datepicker"
+                                               id="datepicker" width="270" value='{{ dob }}'/>
 
                                 </div>
 
@@ -149,7 +139,7 @@
                                 <div class="input-group">
                                     <div class="col-md-12  col-xs-4">
                                         <input id="Address" name="Address" type="text" placeholder="Street"
-                                               class="form-control input-md ">
+                                               class="form-control input-md " value='{{ address }}'>
                                     </div>
                                 </div>
                              </div>
@@ -161,7 +151,7 @@
                             <!--<label class="col-md-6 control-label" for="Primary Occupation">Primary Occupation</label>-->
                             <div class="col-md-6">
                                 <div class="input-group col-md-12">
-                                    <input id="Primary Occupation" name="Primary Occupation" type="text"
+                                    <input id="Primary Occupation" name="Primary Occupation" type="text" value='{{ occupation }}'
                                            placeholder="Primary Occupation" class="form-control input-md">
                                 </div>
 
@@ -188,19 +178,14 @@
                             <div class="col-md-6">
                                 <div class="input-group col-md-12">
                                 <textarea class="form-control" rows="10" id="Overview (max 200 words)"
-                                          name="Overview (max 200 words)">Overview</textarea>
+                                          name="Overview (max 200 words)" value='{{ overview }}'>Overview</textarea>
                                 </div>
                             </div>
                         </div>
-
-
                         <div class="form-group">
                             <label class="col-md-6 control-label"></label>
                             <div class="col-md-6">
-                                <a href="#" class="btn btn-success"><span class="glyphicon glyphicon-thumbs-up"></span>
-                                    Submit</a>
-                                <a href="#" class="btn btn-danger" value=""><span
-                                        class="glyphicon glyphicon-remove-sign"></span> Clear</a>
+                                <input type="submit" class="btn btn-md btn-pink wow tada" id="submit" value="Submit">
                             </div>
                         </div>
                     </fieldset>
@@ -209,16 +194,16 @@
         </div>
     </div>
 </section>
-<script>
-$("input[type='image']").click(function() {
-    $("input[id='my_file']").click();
-});
+<!--<script>-->
+<!--$("input[type='image']").click(function() {-->
+    <!--$("input[id='my_file']").click();-->
+<!--});-->
 
-function changeProfilePicture(){
-<!--alert('changeProfilePicture')-->
-};
-<!--$(document).ready(function() {-->
-    <!--$('.img-picker').imagePicker({name: 'images'});-->
-<!--})-->
-</script>
+<!--function changeProfilePicture(){-->
+<!--&lt;!&ndash;alert('changeProfilePicture')&ndash;&gt;-->
+<!--};-->
+<!--&lt;!&ndash;$(document).ready(function() {&ndash;&gt;-->
+    <!--&lt;!&ndash;$('.img-picker').imagePicker({name: 'images'});&ndash;&gt;-->
+<!--&lt;!&ndash;})&ndash;&gt;-->
+<!--</script>-->
 {% endblock %}
