@@ -20,18 +20,14 @@ def index(request):
 
 def dashboard(request):
     if request.user.is_authenticated():
-        # print('1111')
+        print('1111')
         currency_pairs = History.objects.order_by('symbol').values_list('symbol', flat=True).distinct()
-        # print(currency_pairs)
+        print(currency_pairs)
         # print(len(currency_pairs))
 
         return render(request, "dashboard.html", {'currency_pairs': currency_pairs})
     else:
         return HttpResponseRedirect('/index/')
-
-
-def index3(request):
-    return render(request, "index-3.html")
 
 
 def services(request):
@@ -155,14 +151,14 @@ def contact(request):
     if request.method == "POST":
         form = ContactForm(request.POST)
         if form.is_valid():
-            # print('valid')
+            print('valid')
             form.save()
-            return HttpResponseRedirect('/index/')
+            return HttpResponseRedirect('/index')
         # except Exception as e:
-        # print(e)
+        print('123')
         # else:
         # # print('')
-        return HttpResponseRedirect('/contact/')
+        return HttpResponseRedirect('/contact')
     else:
         form = ContactForm()
     return render(request, 'contact.html', {'form': form})
@@ -172,10 +168,10 @@ def settings(request):
     if request.method == 'POST':
         form = SettingsForm(request.POST)
         if form.is_valid():
-            print(form.cleaned_data)
+            # print(form.cleaned_data)
             setting, created = Setting.objects.get_or_create(user=request.user)
-            print(setting)
-            print(type(setting))
+            # print(setting)
+            # print(type(setting))
             setting.coin_used = form.cleaned_data.get('coin_used')
             setting.trading_mode = form.cleaned_data.get('trading_mode')
             setting.stop_loss_percent = form.cleaned_data.get('stop_loss_percent')
@@ -195,14 +191,14 @@ def settings(request):
             try:
                 setting = Setting.objects.get(user=request.user)
                 # print(setting.trading_mode)
+                # print(1111)
                 return render(request, "settings.html", {'key': exchange.key, 'secret': exchange.secret,
                                                          'trading_mode': setting.trading_mode,
                                                          'coin_used': setting.coin_used,
                                                          'stop_loss_percent': setting.stop_loss_percent,
                                                          'max_profit': setting.max_profit})
             except:
-                pass
-            return render(request, "settings.html", {'key': exchange.key, 'secret': exchange.secret})
+                return render(request, "settings.html", {'key': exchange.key, 'secret': exchange.secret})
         except:
             return render(request, "settings.html")
     else:

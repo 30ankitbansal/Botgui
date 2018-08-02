@@ -1,65 +1,104 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
-    {% block title %} Product List {% endblock %}
+    {% block title %} Packages {% endblock %}
     {% block content %}
 <header class="header-inner">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-10">
         <div class="intro-text">
-          <h1 class="wow fadeInUp">Product List</h1>
-          <h6>Home / Our Products / Grid View</h6>
+          <h1 class="wow fadeInUp">Packages</h1>
+          <h6>Home / Our Packages / Grid View</h6>
         </div>
       </div>
     </div>
   </div>
 </header>
-<section class="section-padding-1">
+<style>
+small {
+    line-height: 0.7;
+}
+
+</style>
+<section class="section-padding-2">
   <div class="container">
-    <div class="product-list">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="product-list-img wow fadeInLeft"><img src="{% static 'images/product-list.png' %}" alt="product-list"></div>
-        </div>
-        <div class="col-md-6">
-          <div class="product-list-text">
-            <h3>GoLive</h3>
-            <h6>WordPress MultiPurpose Theme</h6>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when
-              an unknown printer took a.</p>
-            <p><a class="btn btn-lg btn-pink" href="#">View Details <i class="icofont icofont-long-arrow-right"></i></a></p>
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <h2 class="section-title text-center">Our Packages</h2>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-5" >
+        <div class="pricing-1 wow fadeInUp" style="height:450px;">
+          <div class="pricing-1-title" >
+            <h5>Single Package</h5>
+          </div>
+          <div class="pricing-1-body">
+            <h3>$14.95/month</h3>
+            <h4><b>Trade Bot</b></h4>
+            <p>can buy using crypto</p>
+            <p>Free Support 24/7</p>
+            <p>Binance</p>
+            <p><a class="btn btn-lg btn-pink" href="#">Purchase</a></p>
           </div>
         </div>
       </div>
-    </div>
-    <div class="product-list">
-      <div class="row">
-        <div class="col-md-6 order-md-2">
-          <div class="product-list-img wow fadeInRight"><img src="{% static 'images/product-list.png' %}" alt="product-list"></div>
-        </div>
-        <div class="col-md-6 order-md-1">
-          <div class="product-list-text">
-            <h3>GoLive</h3>
-            <h6>WordPress MultiPurpose Theme</h6>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when
-              an unknown printer took a.</p>
-            <p><a class="btn btn-lg btn-pink" href="#">View Details <i class="icofont icofont-long-arrow-right"></i></a></p>
+      <div class="col-md-5" >
+        <div class="pricing-1 wow fadeInUp" style="height:450px;">
+          <div class="pricing-1-title">
+            <h5>Enhanced Package</h5>
+          </div>
+          <div class="pricing-1-body">
+            <h3>$19.95/month</h3>
+            <h4><b>Trade Bot</b></h4>
+            <h4><b>TradingView</b></h4>
+            <p>can buy using crypto</p>
+            <p>Free Support 24/7</p>
+            <p>Binance</p>
+            <p><a class="btn btn-lg btn-pink" href="#">Purchase</a></p>
+
           </div>
         </div>
       </div>
-    </div>
-    <div class="product-list">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="product-list-img wow fadeInLeft"><img src="{% static 'images/product-list.png' %}" alt="product-list"></div>
+      <div class="col-md-5" >
+        <div class="pricing-1 wow fadeInUp" >
+          <div class="pricing-1-title">
+            <h5>Plus</h5>
+          </div>
+          <div class="pricing-1-body">
+            <h3>$24.95/month</h3>
+            <h4><b>Trade Bot</b></h4>
+            <h4><b>TradingView</b></h4>
+            <h4 style="margin-bottom: 0px;"><b>Prediction Charts</b></h4>
+            <h6 style="margin-top: 0px;"><b>(daily/weekly)</b></h6>
+            <p>Get all strategy to use</p>
+            <p>can buy using crypto</p>
+            <p>ALL Exchange included and TradingView add-on</p>
+            <p>Free Support 24/7</p>
+            <p>Binance</p>
+            <p><a class="btn btn-lg btn-pink" href="#">Purchase</a></p>
+
+          </div>
         </div>
-        <div class="col-md-6">
-          <div class="product-list-text">
-            <h3>GoLive</h3>
-            <h6>WordPress MultiPurpose Theme</h6>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when
-              an unknown printer took a.</p>
-            <p><a class="btn btn-lg btn-pink" href="#">View Details <i class="icofont icofont-long-arrow-right"></i></a></p>
+      </div>
+      <div class="col-md-5" >
+        <div class="pricing-1 wow fadeInUp">
+          <div class="pricing-1-title">
+            <h5><b>Extreme</b></h5>
+          </div>
+          <div class="pricing-1-body">
+            <h3>$24.95/month</h3>
+            <h4><b>Trade Bot</b></h4>
+            <h4><b>TradingView</b></h4>
+            <h4 style="margin-bottom: 0px;"><b>Prediction Charts</b></h4>
+            <h6 style="margin-top: 0px;"><b>(monthly/yearly)</b></h6>
+            <p>Get all strategy to use</p>
+            <p>can buy using crypto</p>
+            <p>ALL Exchange included and TradingView add-on</p>
+            <p>Free Support 24/7</p>
+            <p>Binance</p>
+            <p><a class="btn btn-lg btn-pink" href="#">Purchase</a></p>
+
           </div>
         </div>
       </div>
